@@ -11,11 +11,11 @@
     </style>
 </head>
 <body>
-    <h2>🧾 Sales Order #{{ $order->id }}</h2>
+    <h2> Sales Order #{{ $order->id }}</h2>
 
     <p><strong>Customer:</strong> {{ $order->customer_name }}</p>
     <p><strong>Order Date:</strong> {{ \Carbon\Carbon::parse($order->order_date)->format('d M Y') }}</p>
-    <p><strong>Total:</strong> ₹{{ number_format($order->total, 2) }}</p>
+    <p><strong>Total:</strong> INR{{ number_format($order->total, 2) }}</p>
 
     <table>
         <thead>
@@ -33,8 +33,8 @@
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->product->sku }}</td>
                     <td>{{ $item->quantity }}</td>
-                    <td>₹{{ number_format($item->price, 2) }}</td>
-                    <td>₹{{ number_format($item->subtotal, 2) }}</td>
+                    <td>INR{{ number_format($item->price, 2) }}</td>
+                    <td>INR{{ number_format($item->subtotal, 2) }}</td>
                 </tr>
             @endforeach
         </tbody>
