@@ -8,7 +8,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use App\Models\SalesItem;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class SalesOrderController extends Controller
@@ -125,11 +125,21 @@ class SalesOrderController extends Controller
         //
     }
 
-    public function downloadPDF($id)
+      public function downloadPDF($id)
     {
         $order = SalesOrder::with('items.product')->findOrFail($id);
+
         $pdf = Pdf::loadView('pdf.invoice', compact('order'));
 
-        return $pdf->download('SalesOrder_'.$order->id.'.pdf');
+        // Define file name and path
+        $filename = 'SalesOrder_' . $order->id . '.pdf';
+        $savePath = public_path('pdf/' . $filename);
+
+        // Save the PDF to /public/pdf directory
+        $pdf->save($savePath);
+
+        // Return the PDF for download
+        return $pdf->download($filename);
     }
+
 }

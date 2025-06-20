@@ -59,6 +59,7 @@ DB_PASSWORD=
 
 # 5. Run migrations and seeders
 php artisan migrate --seed
+Or import the SQL file from public/db/erp_assignment.sql manually into your MySQL database.
 
 # 6. Serve the app
 php artisan serve
@@ -84,15 +85,21 @@ php artisan serve
    - Sales order and items are saved.
 4. Sales order can be viewed and exported as a PDF invoice.
 
----
+📄 PDF Invoice Storage
 
- 🧾 PDF Invoice
+Each time a Sales Order is downloaded as PDF, the system:
 
-- Go to a sales order detail page.
-- Click "Export PDF" to download the invoice.
-- PDF is generated using [barryvdh/laravel-dompdf](https://github.com/barryvdh/laravel-dompdf).
+- Saves a copy of the PDF in the `public/pdf/` directory.
+- Uses a file name format like `SalesOrder_1.pdf`.
 
----
+ 🛠️ Setup
+
+Make sure the `public/pdf/` directory exists and is writable:
+
+bash
+mkdir -p public/pdf
+chmod -R 775 public/pdf
+
 
  🌐 API Endpoints
 
