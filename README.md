@@ -1,32 +1,32 @@
-# 🚀 Laravel Mini ERP Assignment
+ 🚀 Laravel Mini ERP Assignment
 
-A lightweight ERP system built using **Laravel 11**, **Tailwind CSS**, and **Sanctum**.  
+A lightweight ERP system built using Laravel 11, Tailwind CSS, and Sanctum.  
 This application demonstrates basic inventory and sales order management with PDF export functionality and RESTful API access.
 
 ---
 
-## 🧰 Tech Stack
+ 🧰 Tech Stack
 
-- **Laravel 11**
-- **Tailwind CSS**
-- **Laravel Sanctum** (API Authentication)
-- **DomPDF** (PDF Invoicing)
-- **MySQL** (Database)
-
----
-
-## ✅ Features
-
-- 🔐 **Role-based access** (`admin` / `sales`)
-- 📦 **Product CRUD** (Admin only)
-- 📋 **Sales Order creation** with multiple items
-- 📉 **Inventory auto-reduction** after order
-- 📄 **PDF Export** for sales invoices
-- 🌐 **REST API endpoints** with token-based auth
+- Laravel 11
+- Tailwind CSS
+- Laravel Sanctum (API Authentication)
+- DomPDF (PDF Invoicing)
+- MySQL (Database)
 
 ---
 
-## 🧪 Seeded Users
+ ✅ Features
+
+- 🔐 Role-based access (`admin` / `sales`)
+- 📦 Product CRUD (Admin only)
+- 📋 Sales Order creation with multiple items
+- 📉 Inventory auto-reduction after order
+- 📄 PDF Export for sales invoices
+- 🌐 REST API endpoints with token-based auth
+
+---
+
+ 🧪 Seeded Users
 
 | Role        | Email                      | Password  |
 |-------------|----------------------------|-----------|
@@ -37,7 +37,7 @@ Login: [http://localhost:8000/login](http://localhost:8000/login)
 
 ---
 
-## 🛠️ Setup Instructions
+ 🛠️ Setup Instructions
 
 ```bash
 # 1. Clone the repository
@@ -66,19 +66,19 @@ php artisan serve
 
 ---
 
-## 🏗️ Database Structure
+ 🏗️ Database Structure
 
-- **users**: Stores user accounts and roles.
-- **products**: Product catalog with inventory quantity.
-- **sales_orders**: Sales order headers.
-- **sales_items**: Line items for each order.
+- users: Stores user accounts and roles.
+- products: Product catalog with inventory quantity.
+- sales_orders: Sales order headers.
+- sales_items: Line items for each order.
 
 ---
 
-## 🛒 Sales Order & Inventory Flow
+ 🛒 Sales Order & Inventory Flow
 
-1. **Admin** creates products and manages inventory.
-2. **Salesperson** creates a new sales order, selecting products and quantities.
+1. Admin creates products and manages inventory.
+2. Salesperson creates a new sales order, selecting products and quantities.
 3. On order submission:
    - Inventory is automatically reduced.
    - Sales order and items are saved.
@@ -86,47 +86,61 @@ php artisan serve
 
 ---
 
-## 🧾 PDF Invoice
+ 🧾 PDF Invoice
 
 - Go to a sales order detail page.
-- Click **"Export PDF"** to download the invoice.
+- Click "Export PDF" to download the invoice.
 - PDF is generated using [barryvdh/laravel-dompdf](https://github.com/barryvdh/laravel-dompdf).
 
 ---
 
-## 🌐 API Endpoints
+ 🌐 API Endpoints
 
-- **Authentication:**  
+- Authentication:  
   `POST /api/login` (returns token)
-- **Products:**  
+- Products:  
   `GET /api/products`  
   `POST /api/products` (admin only)
-- **Sales Orders:**  
+- Sales Orders:  
   `GET /api/orders`  
   `POST /api/orders`
-- **PDF Invoice:**  
+- PDF Invoice:  
   `GET /api/orders/{id}/pdf`
 
 All API routes require Bearer token (Sanctum).
 
 ---
 
-## 🧑‍💻 Development
+ 🧑‍💻 Development
 
-- **Frontend:** Blade + Tailwind CSS
-- **Backend:** Laravel MVC, REST API
-- **Testing:**  
+- Frontend: Blade + Tailwind CSS
+- Backend: Laravel MVC, REST API
+- Testing:  
   Run tests with:
   ```bash
   php artisan test
   ```
 
 ---
+📸 Screenshots
+🔐 Login Page
 
-## 📄 License
+📦 Product List (Admin)
 
-MIT
+➕ Create Product
 
+✏️ Update Product
 
----
+📊 Admin Dashboard
+
+📉 Dashboard Before Creating Sales Order
+
+🧾 Sales Orders (Salesperson)
+
+📄 Sales Order Detail Page
+
+👨‍💼 Salesperson Dashboard
+
+🔁 Create Sales Order via API (Postman)
+
 
