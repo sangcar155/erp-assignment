@@ -28,12 +28,12 @@ This application demonstrates basic inventory and sales order management with PD
 
 ## 🧪 Seeded Users
 
-| Role        | Email                  | Password  |
-|-------------|------------------------|-----------|
-| Admin       | `admin@example.com`     | `password` |
-| Salesperson | `salesperson@example.com` | `password` |
+| Role        | Email                      | Password  |
+|-------------|----------------------------|-----------|
+| Admin       | `admin@example.com`        | `password` |
+| Salesperson | `salesperson@example.com`  | `password` |
 
-Login here: `http://localhost:8000/login`
+Login: [http://localhost:8000/login](http://localhost:8000/login)
 
 ---
 
@@ -62,3 +62,71 @@ php artisan migrate --seed
 
 # 6. Serve the app
 php artisan serve
+```
+
+---
+
+## 🏗️ Database Structure
+
+- **users**: Stores user accounts and roles.
+- **products**: Product catalog with inventory quantity.
+- **sales_orders**: Sales order headers.
+- **sales_items**: Line items for each order.
+
+---
+
+## 🛒 Sales Order & Inventory Flow
+
+1. **Admin** creates products and manages inventory.
+2. **Salesperson** creates a new sales order, selecting products and quantities.
+3. On order submission:
+   - Inventory is automatically reduced.
+   - Sales order and items are saved.
+4. Sales order can be viewed and exported as a PDF invoice.
+
+---
+
+## 🧾 PDF Invoice
+
+- Go to a sales order detail page.
+- Click **"Export PDF"** to download the invoice.
+- PDF is generated using [barryvdh/laravel-dompdf](https://github.com/barryvdh/laravel-dompdf).
+
+---
+
+## 🌐 API Endpoints
+
+- **Authentication:**  
+  `POST /api/login` (returns token)
+- **Products:**  
+  `GET /api/products`  
+  `POST /api/products` (admin only)
+- **Sales Orders:**  
+  `GET /api/orders`  
+  `POST /api/orders`
+- **PDF Invoice:**  
+  `GET /api/orders/{id}/pdf`
+
+All API routes require Bearer token (Sanctum).
+
+---
+
+## 🧑‍💻 Development
+
+- **Frontend:** Blade + Tailwind CSS
+- **Backend:** Laravel MVC, REST API
+- **Testing:**  
+  Run tests with:
+  ```bash
+  php artisan test
+  ```
+
+---
+
+## 📄 License
+
+MIT
+
+
+---
+
